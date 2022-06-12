@@ -7,12 +7,12 @@ const TransActionForm = () => {
         <input
           type="text"
           name="description"
-          className="w-46 m-2 border border-gray-200 p-1 focus:outline-none"
+          className="w-46 m-2 rounded border border-gray-200 p-1 focus:outline-none"
         />
         <input
           type="number"
           name="amount"
-          className="w-46 border border-gray-200 p-1 focus:outline-none"
+          className="w-46 rounded border border-gray-200 p-1 focus:outline-none"
         />
         <div className="flex gap-x-4 p-2">
           <div>
