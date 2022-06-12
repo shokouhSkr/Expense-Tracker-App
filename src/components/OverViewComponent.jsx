@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TransActionForm from "./TransActionForm";
 
-const OverViewComponent = ({ income, expense }) => {
+const OverViewComponent = ({ income, expense, addTransaction }) => {
   const [isShow, setIsShow] = useState(false);
 
   return (
@@ -15,7 +15,7 @@ const OverViewComponent = ({ income, expense }) => {
           {isShow ? "Cancel" : "Add"}
         </button>
       </div>
-      {isShow && <TransActionForm />}
+      {isShow && <TransActionForm addTransaction={addTransaction} />}
       <div className="flex justify-between">
         <span>Expense {expense}</span>
         <span>Income {income}</span>
