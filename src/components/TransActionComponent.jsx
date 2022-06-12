@@ -1,7 +1,15 @@
 import React from "react";
 
-const TransActionComponent = ({ transaction }) => {
-  return <section>transaction!</section>;
+const TransActionComponent = ({ transactions }) => {
+  return (
+    <section>
+      {transactions.map((t) => (
+        <div key={t.id} className="text-lg">
+          {t.description}
+        </div>
+      ))}
+    </section>
+  );
 };
 
 export default TransActionComponent;

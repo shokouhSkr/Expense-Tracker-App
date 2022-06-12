@@ -24,13 +24,16 @@ const TransActionForm = ({ addTransaction }) => {
 
   return (
     <div>
-      <form onSubmit={submitHandler} className="mb-3 rounded bg-gray-100 p-2 text-lg">
+      <form
+        onSubmit={submitHandler}
+        className="mb-3 rounded border border-gray-200 bg-gray-100 p-2 text-lg"
+      >
         <input
           type="number"
           name="amount"
           value={formValuse.amount}
           placeholder="Amount"
-          className="w-46 m-2 rounded border border-gray-200 p-1 focus:border-gray-400 focus:outline-none"
+          className="w-46 m-2 mr-4 rounded border border-gray-200 p-1 focus:border-gray-400 focus:outline-none"
           onChange={changeHandler}
           ref={inputRef}
         />
