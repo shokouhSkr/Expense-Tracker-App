@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const TransActionForm = ({ addTransaction }) => {
+const TransActionForm = ({ addTransaction, setIsShow }) => {
   const [formValuse, setFormValues] = useState({
     type: "expense",
     amount: 0,
@@ -20,6 +20,7 @@ const TransActionForm = ({ addTransaction }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     addTransaction(formValuse);
+    setIsShow(false);
   };
 
   return (
@@ -33,7 +34,7 @@ const TransActionForm = ({ addTransaction }) => {
           name="amount"
           value={formValuse.amount}
           placeholder="Amount"
-          className="w-46 m-2 mr-4 rounded border border-gray-200 p-1 focus:border-gray-400 focus:outline-none"
+          className="w-46 m-2 rounded border border-gray-200 p-1 focus:border-gray-400 focus:outline-none"
           onChange={changeHandler}
           ref={inputRef}
         />
@@ -42,39 +43,41 @@ const TransActionForm = ({ addTransaction }) => {
           name="description"
           value={formValuse.description}
           placeholder="Description"
-          className="w-46 rounded border border-gray-200 p-1 focus:border-gray-400 focus:outline-none"
+          className="w-46 m-2 rounded border border-gray-200 p-1 focus:border-gray-400 focus:outline-none"
           onChange={changeHandler}
         />
-        <div className="flex gap-x-4 p-2">
+        <div className="mb-6 flex gap-x-4">
           <div>
             <input
               type="radio"
               value="expense"
+              id="expense"
               name="type"
               className="mr-1"
               onChange={changeHandler}
               checked={formValuse.type === "expense"}
             />
-            <label>Expense</label>
+            <label htmlFor="expense">Expense</label>
           </div>
 
           <div>
             <input
               type="radio"
               value="income"
+              id="income"
               name="type"
               className="mr-1"
               onChange={changeHandler}
               checked={formValuse.type === "income"}
             />
-            <label>Income</label>
+            <label htmlFor="income">Income</label>
           </div>
         </div>
 
         <div className="flex items-center justify-center">
           <button
             type="submit"
-            className="mb-2 rounded border border-red-300 bg-red-200 px-4 py-1 text-base transition-all duration-300 hover:bg-red-300 active:bg-red-300"
+            className="m-2 mb-2 w-full rounded border border-gray-300 bg-gray-700 px-4 py-1.5 text-base text-white active:translate-x-[1px] active:translate-y-[1px] active:transform"
           >
             Add transaction
           </button>
